@@ -23,14 +23,17 @@ public class Car {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "users_id")
     private User user;
-
     public Car() {
 
     }
 
-    public Car(String model, int series) {
+
+
+    public Car(String model, int series, User user) {
         this.model = model;
         this.series = series;
+        this.user = user;
+        this.id = null;
     }
 
     public String getModel() {
@@ -64,7 +67,7 @@ public class Car {
         return "Car {" +
                 "id=" + id +
                 ", model='" + model + '\'' +
-                ", series=" + series +
+                ", series=" + series + ", user=" + user +
                 '}';
     }
 }
